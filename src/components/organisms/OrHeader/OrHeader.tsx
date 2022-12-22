@@ -4,7 +4,7 @@ import { AtLogo } from 'components/atoms'
 
 export const OrHeader = () => {
   return (
-    <header className="flex bg-gradient-to-r from-primary to-secondary text-white py-3 px-5 sm:px-10 justify-between items-center">
+    <header className="flex bg-gradient-bold text-white py-3 px-5 sm:py-5 sm:px-10 justify-between items-center">
       <AtLogo />
       <ul className="flex text-sm space-x-3 sm:text-base sm:space-x-6">
         <li>Mi negocio</li>
