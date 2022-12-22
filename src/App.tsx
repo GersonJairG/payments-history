@@ -1,7 +1,11 @@
-import React from 'react'
+import { Layout } from './components/templates'
 
 function App() {
-  return <main>Bold Challenge</main>
+  return (
+    <Layout>
+      <main>Bold Challenge</main>
+    </Layout>
+  )
 }
 
 export default App
