@@ -1,0 +1,104 @@
+{
+  "data": [
+    {
+      "status": "succeeded",
+      "type": "dataphone",
+      "date": "2022-12-22 23:45:28",
+      "method": {
+        "type": "card",
+        "numberCard": 7711,
+        "provider": "mastercard"
+      },
+      "id": "GZEN23784UBV1",
+      "amount": 25000,
+      "deduction": 1500
+    },
+    {
+      "status": "failed",
+      "type": "dataphone",
+      "date": "2022-12-23 00:00:14",
+      "method": {
+        "type": "card",
+        "numberCard": 1234,
+        "provider": "visa"
+      },
+      "id": "GZEN23784UBV2",
+      "amount": 15000,
+      "deduction": 0
+    },
+    {
+      "status": "succeeded",
+      "type": "link",
+      "date": "2022-12-07 17:14:36",
+      "method": {
+        "type": "card",
+        "numberCard": 1234,
+        "provider": "mastercard"
+      },
+      "id": "GZEN23784UBV3",
+      "amount": 25000,
+      "deduction": 1500
+    },
+    {
+      "status": "processing",
+      "type": "link",
+      "date": "2022-12-20 12:14:36",
+      "method": {
+        "type": "card",
+        "numberCard": 5673,
+        "provider": "americanexpress"
+      },
+      "id": "HZ1523I840B03",
+      "amount": 48000,
+      "deduction": 0
+    },
+    {
+      "status": "processing",
+      "type": "link",
+      "date": "2022-01-10 12:14:36",
+      "method": {
+        "type": "card",
+        "numberCard": 5673,
+        "provider": "americanexpress"
+      },
+      "id": "GERS23IJA0B03",
+      "amount": 48000,
+      "deduction": 0
+    },
+    {
+      "status": "succeeded",
+      "type": "link",
+      "date": "2022-12-21 12:14:36",
+      "method": {
+        "type": "card",
+        "numberCard": 5673,
+        "provider": "visa"
+      },
+      "id": "H00523IJK0B03",
+      "amount": 50000,
+      "deduction": 3000
+    }
+  ],
+  "headers": [
+    {
+      "label": "Transacción",
+      "id": "transaction"
+    },
+    {
+      "label": "Fecha y hora",
+      "id": "date"
+    },
+    {
+      "label": "Método de pago",
+      "id": "paymentMethod"
+    },
+    {
+      "label": "ID transacción Bold",
+      "id": "id"
+    },
+    {
+      "label": "Monto",
+      "id": "amount"
+    }
+  ]
+}

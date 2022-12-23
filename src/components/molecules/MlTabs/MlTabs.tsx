@@ -20,9 +20,9 @@ export const MlTabs = ({
         return (
           <button
             key={label}
-            className={`flex py-2 text-primary justify-center items-center w-full rounded-full capitalize ${
-              isActive ? 'bg-gray-300 transition font-bold duration-150' : ''
-            }`}
+            className={`flex py-2 text-primary justify-center items-center w-full ${
+              isActive ? 'bg-gray-200 font-bold' : 'font-semibold'
+            } rounded-full capitalize transition duration-150`}
             onClick={() => handleChange(value)}
           >
             {label}

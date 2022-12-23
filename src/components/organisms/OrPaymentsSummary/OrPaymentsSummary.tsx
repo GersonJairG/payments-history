@@ -41,6 +41,7 @@ export const OrPaymentsSummary = ({
         break
     }
   }, [frequency])
+
   return (
     <MlSummaryCard
       className={className}
