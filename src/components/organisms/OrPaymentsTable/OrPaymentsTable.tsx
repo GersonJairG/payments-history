@@ -150,7 +150,7 @@ export const OrPaymentsTable = ({
       </div>
       {!data.length ? (
         <div className="bg-white w-full rounded-b-2xl text-center font-medium text-sm md:text-base py-5 px-5">
-          No hay datos en la configuración seleccionada
+          No se encontraron ventas
         </div>
       ) : (
         <>

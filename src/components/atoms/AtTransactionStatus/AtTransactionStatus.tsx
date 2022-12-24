@@ -17,7 +17,7 @@ export const AtTransactionStatus = ({
 }: AtTransactionStatusProps) => {
   function renderType(type: PayType) {
     if (type === PayType.DATAPHONE) {
-      return <DataphoneIcon className="h-5 w-5 min-w-fit" />
+      return <DataphoneIcon className="h-5 w-5" />
     }
     if (type === PayType.LINK) {
       return <HiOutlineLink className="h-5 w-5" />

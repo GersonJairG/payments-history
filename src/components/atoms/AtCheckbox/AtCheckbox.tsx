@@ -27,7 +27,7 @@ export const AtCheckbox = ({
     })
   }
   return (
-    <div className="flex space-x-4">
+    <div className="flex space-x-4 items-center">
       <input
         type="checkbox"
         id={value}

@@ -16,11 +16,11 @@ export const AtPaymentMethod = ({
   function renderProvider(provider: PayProvider) {
     switch (provider) {
       case PayProvider.MASTERCARD:
-        return <MasterCardIcon className="w-6 h-6 min-h-fit" />
+        return <MasterCardIcon className="w-6 h-6" />
       case PayProvider.VISA:
-        return <VisaIcon className="w-6 h-6 min-h-fit" />
+        return <VisaIcon className="w-6 h-6" />
       case PayProvider.AMERICANEXPRESS:
-        return <AmericanExpressIcon className="w-6 h-6 min-h-fit" />
+        return <AmericanExpressIcon className="w-6 h-6" />
       default:
         return null
     }
