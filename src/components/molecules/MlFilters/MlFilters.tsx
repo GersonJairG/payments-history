@@ -28,10 +28,10 @@ export const MlFilters = ({
   }>({ ...activeOptions, all: isAllCheck(activeOptions) })
 
   const filtersRef = useRef<HTMLDivElement>(null)
+  const [showFilters, setShowFilters] = useState<boolean>(false)
+  const numberFilterSelected = getCountSelected(selectedOptions)
 
   useOutsideClick(filtersRef, closeFilters)
-
-  const [showFilters, setShowFilters] = useState<boolean>(false)
 
   function onChange(option: OptionCheckbox) {
     if (option.value === 'all') {
@@ -79,9 +79,11 @@ export const MlFilters = ({
         className={`flex bg-white w-full items-center rounded-2xl justify-center space-x-4 py-3 hover:shadow-md hover:font-semibold ${className}`}
         onClick={() => setShowFilters(true)}
       >
-        <span className="text-secondary font-semibold text-xs">
-          ({getCountSelected(selectedOptions)})
-        </span>
+        {numberFilterSelected > 0 && (
+          <span className="text-secondary font-semibold text-xs">
+            ({numberFilterSelected})
+          </span>
+        )}
         <span className="text-primary uppercase text-sm font-medium">
           Filtrar
         </span>
@@ -91,7 +93,7 @@ export const MlFilters = ({
   }
 
   return (
-    <div className={`relative ${className} h-11`} ref={filtersRef}>
+    <div className={`relative ${className} h-12 z-50`} ref={filtersRef}>
       <div
         className={`absolute bg-white w-full rounded-2xl py-3 px-5 shadow-md`}
       >
@@ -105,7 +107,7 @@ export const MlFilters = ({
           />
         </div>
 
-        <div className="flex flex-col w-full py-3 text-sm md:text-base">
+        <div className="flex flex-col w-full py-5 text-sm md:text-base">
           <AtCheckbox
             label="Cobro con datáfono"
             value={PayType.DATAPHONE}

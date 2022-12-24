@@ -22,7 +22,7 @@ export const OrPaymentsTable = ({
 }: OrPaymentsTableProps) => {
   return (
     <div className={`${className}`}>
-      <div className="w-full bg-gradient-bold text-white sm:text-lg pl-5 py-1 rounded-t-2xl">
+      <div className="w-full bg-gradient-bold text-white sm:text-lg pl-5 py-2 rounded-t-2xl text-center sm:text-left">
         {title}
       </div>
       {!data.length ? (
@@ -30,9 +30,9 @@ export const OrPaymentsTable = ({
           No hay datos en la configuración seleccionada
         </div>
       ) : (
-        <div className="bg-white overflow-x-auto overflow-y-auto max-h-80 rounded-b-2xl">
+        <div className="bg-white overflow-x-auto overflow-y-auto max-h-96 rounded-b-2xl">
           <table className="w-full table-auto">
-            <thead>
+            <thead className='sticky top-0 bg-white shadow-md'>
               <tr className="font-semibold text-darkGray text-sm">
                 {headers.map(({ label, id }) => (
                   <th key={id} className="text-left first:pl-5">

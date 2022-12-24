@@ -14,10 +14,8 @@ export const MlSummaryCard = ({
   className = '',
 }: MlSummaryCardProps) => {
   return (
-    <div
-      className={`h-full flex-col w-full text-center rounded-2xl bg-gradient-bold-solf ${className}`}
-    >
-      <div className="flex text-white items-center py-3 rounded-t-2xl justify-between px-4 font-semibold">
+    <div className={`flex-col w-full text-center rounded-2xl ${className}`}>
+      <div className="flex bg-gradient-bold-solf text-white items-center py-3 rounded-t-2xl justify-between px-4 font-semibold">
         <span>{title}</span>
         <MdInfoOutline className="h-5 w-5 ml-1" />
       </div>

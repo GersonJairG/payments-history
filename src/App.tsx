@@ -1,13 +1,14 @@
 import { useMemo, useState } from 'react'
 
-import { MlFilters, MlTabs } from 'components/molecules'
+import { MlFilters, MlSummaryCard, MlTabs } from 'components/molecules'
 import { Layout } from 'components/templates'
-import { OrPaymentsSummary, OrPaymentsTable } from 'components/organisms'
+import { OrPaymentsTable } from 'components/organisms'
 import { FrequencyOption, FrequencyType, PayTypeOption } from 'types'
 import { getCurrentMonth } from 'utils/dateFormatter'
 import payments from 'data/payments.json'
 import { PaymentType } from 'types/payments'
 import usePaymentsFilter from 'hooks/usePaymentsFilter'
+import { getFormatCOP } from 'utils/helpers'
 
 const frequencyOptions: FrequencyOption[] = [
   { label: 'Hoy', value: FrequencyType.TODAY },
@@ -19,7 +20,7 @@ function App() {
   const [frequency, setFrequency] = useState<FrequencyType>(
     () =>
       (localStorage.getItem('frequency') ||
-        FrequencyType.TODAY) as FrequencyType
+        FrequencyType.MONTH) as FrequencyType
   )
 
   const [paymentTypes, setPaymentTypes] = useState<PayTypeOption>(() =>
@@ -47,40 +48,41 @@ function App() {
     [frequency, paymentTypes]
   )
 
-  const { dataFiltered, totalAmount } = usePaymentsFilter(
-    payments.data as PaymentType[],
-    filters
-  )
+  const {
+    dataFiltered,
+    totalAmount,
+    summaryTitle,
+    summarySubtitle,
+    tableTitle,
+  } = usePaymentsFilter(payments.data as PaymentType[], filters)
 
   return (
     <Layout>
       <main className="px-5 sm:px-10 py-10">
-        <div className="flex flex-col sm:flex-row justify-between space-y-5 sm:space-x-5 sm:space-y-0">
-          <div className="sm:max-w-sm sm:min-w-[320px] h-full">
-            <OrPaymentsSummary
-              frequency={frequency}
-              totalAmount={totalAmount}
-            />
-          </div>
-
-          <div className="flex flex-col w-full space-y-5">
-            <MlTabs
-              options={frequencyOptions}
-              active={frequency}
-              handleChange={changeFrequency}
-              className="flex-col lg:flex-row"
-            />
-            <MlFilters
-              activeOptions={paymentTypes}
-              handleChange={changePaymentTypes}
-              className="md:self-end md:w-4/5 lg:w-1/2 xl:w-1/3"
-            />
-          </div>
+        <div className="grid grid-col-1 sm:grid-cols-4 md:grid-cols-3 sm:grid-rows-1 gap-4">
+          <MlSummaryCard
+            value={getFormatCOP(totalAmount)}
+            title={summaryTitle}
+            subtitle={summarySubtitle}
+            className="sm:col-span-2  md:col-span-1 sm:row-span-1 lg:row-span-3"
+          />
+          <MlTabs
+            options={frequencyOptions}
+            active={frequency}
+            handleChange={changeFrequency}
+            className="flex-col h-fit self-center lg:flex-row sm:col-span-2 sm:row-span-1"
+          />
+          <MlFilters
+            activeOptions={paymentTypes}
+            handleChange={changePaymentTypes}
+            className="sm:col-start-3 sm:col-span-2 sm:self-baseline"
+          />
         </div>
         <OrPaymentsTable
-          className="my-5"
           headers={payments.headers}
           data={dataFiltered}
+          title={tableTitle}
+          className="mt-5"
         />
       </main>
     </Layout>

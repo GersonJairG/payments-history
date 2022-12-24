@@ -25,6 +25,9 @@ export function isSomeSelected(options: { [key: string]: boolean }) {
 
 export function isAllCheck(options: { [key: string]: boolean }) {
   const selectionClean = getSelectionClean(options)
+  if (!Object.keys(selectionClean).length) {
+    return false
+  }
   return !Object.values(selectionClean).some((option) => !option)
 }
 

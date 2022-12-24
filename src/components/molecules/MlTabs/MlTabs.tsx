@@ -14,7 +14,7 @@ export const MlTabs = ({
   handleChange,
 }: MlTabsProps) => {
   return (
-    <div className={`flex w-full bg-white py-1 px-1 ${className}`}>
+    <div className={`flex w-full bg-white py-1 px-1 rounded-2xl ${className}`}>
       {options.map(({ label, value }) => {
         const isActive = active === value
         return (
