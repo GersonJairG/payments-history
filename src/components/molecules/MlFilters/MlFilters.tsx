@@ -8,7 +8,6 @@ import {
   getCountSelected,
   getSelectionClean,
   isAllCheck,
-  isSomeSelected,
 } from 'utils/helpers'
 import useOutsideClick from 'hooks/useOutsideClick'
 
@@ -136,7 +135,6 @@ export const MlFilters = ({
         <div className="w-full flex justify-center">
           <AtButton
             primary
-            disabled={!isSomeSelected(selectedOptions)}
             onClick={applyFilters}
             className="w-2/3"
           >

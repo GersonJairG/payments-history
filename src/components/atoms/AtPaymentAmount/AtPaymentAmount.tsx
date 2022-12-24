@@ -16,7 +16,7 @@ export const AtPaymentAmount = ({
   return (
     <div className={`flex flex-col ${className}`}>
       <span className="text-primary font-semibold">{getFormatCOP(amount)}</span>
-      {successful && (
+      {successful && deduction > 0 && (
         <>
           <span className="font-semibold text-xs">Deducción Bold</span>
           <span className="text-secondary text-xs">

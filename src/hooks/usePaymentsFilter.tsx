@@ -33,8 +33,8 @@ const usePaymentsFilter = (data: PaymentType[], filters?: FilterOptions) => {
       return validateDateRange(item.date, frequency)
     })
 
-    // Si no existe al menos un true, todos los type seran validos,
-    // Si hay algun true, se validará si es el type del item
+    // If there is not at least one true, all types will be valid.,
+    // If there is any true, it is validated if it is the type of the item
     const totallyFiltered = filteredByFrequency.filter((item) => {
       return (
         !Object.values(paymentTypes).some((value) => value) ||

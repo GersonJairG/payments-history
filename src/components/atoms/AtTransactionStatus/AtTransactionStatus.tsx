@@ -2,7 +2,6 @@ import { DataphoneIcon } from 'assets/icons'
 import { HiOutlineLink } from 'react-icons/hi'
 
 import { PayType, StatusType } from 'types/payments'
-// import { DataphoneIcon } from 'components/atoms'
 
 interface AtTransactionStatusProps {
   type: PayType
@@ -38,7 +37,7 @@ export const AtTransactionStatus = ({
   return (
     <div className={`flex ${className}`}>
       {renderType(type)}
-      <span className="sm:ml-2">{renderDetail(status)}</span>
+      <span className="ml-2">{renderDetail(status)}</span>
     </div>
   )
 }

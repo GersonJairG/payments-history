@@ -6,7 +6,7 @@ export function getFormatCOP(value: number) {
   })
 }
 
-// functions to validate objects
+// Functions to validate objects
 export function getSelectionClean(options: { [key: string]: boolean }) {
   return Object.keys(options)
     .filter((key) => key !== 'all')
@@ -25,12 +25,10 @@ export function isSomeSelected(options: { [key: string]: boolean }) {
 
 export function isAllCheck(options: { [key: string]: boolean }) {
   const selectionClean = getSelectionClean(options)
-  if (!Object.keys(selectionClean).length) {
-    return false
-  }
-  return !Object.values(selectionClean).some((option) => !option)
+  const values = Object.values(selectionClean)
+  return values.length > 1 && !values.some((option) => !option)
 }
 
 export function getCountSelected(options: { [key: string]: boolean }) {
-  return Object.values(options).filter(option => option).length
+  return Object.values(options).filter((option) => option).length
 }

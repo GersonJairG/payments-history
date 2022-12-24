@@ -3,6 +3,8 @@ import {
   AtPaymentMethod,
   AtPaymentAmount,
 } from 'components/atoms'
+import { MOBILE_SM } from 'constants/devicesSizes'
+import useWindowSize from 'hooks/useWindowSize'
 import { PaymentType, PayProvider, PayType, StatusType } from 'types/payments'
 import { getPaymentFormat } from 'utils/dateFormatter'
 import { HeaderType } from './types'
@@ -20,13 +22,15 @@ export const OrPaymentsTable = ({
   headers = [],
   title = 'Tus ventas',
 }: OrPaymentsTableProps) => {
-  const renderTable = () => {
+  const size = useWindowSize()
+
+  const renderTable = (rows: PaymentType[], columns: HeaderType[]) => {
     return (
       <div className="hidden sm:flex bg-white overflow-x-auto overflow-y-auto max-h-96 rounded-b-2xl">
         <table className="w-full table-auto">
           <thead className="sticky top-0 bg-white shadow-md">
             <tr className="font-semibold text-darkGray text-sm">
-              {headers.map(({ label, id }) => (
+              {columns.map(({ label, id }) => (
                 <th key={id} className="text-left first:pl-5">
                   {label}
                 </th>
@@ -35,7 +39,7 @@ export const OrPaymentsTable = ({
           </thead>
 
           <tbody>
-            {data.map(
+            {rows.map(
               ({ id, status, type, date, method, amount, deduction }) => {
                 return (
                   <tr
@@ -82,20 +86,17 @@ export const OrPaymentsTable = ({
     )
   }
 
-  const renderCards = () => {
+  const renderCards = (rows: PaymentType[], columns: HeaderType[]) => {
     return (
-      <div className="flex-col bg-white w-full overflow-x-auto overflow-y-auto max-h-96 rounded-b-2xl sm:hidden py-3 px-5 text-sm">
-        {data.map(({ id, status, type, date, method, amount, deduction }) => {
+      <div className="flex-col bg-white w-full overflow-x-auto overflow-y-auto max-h-96 rounded-b-2xl sm:hidden py-3 px-5 text-sm divide-y-2">
+        {rows.map(({ id, status, type, date, method, amount, deduction }) => {
           return (
-            <div
-              key={id}
-              className="border-b-2 border-b-gray-300 py-3 last:border-none"
-            >
-              {headers.map((header) => {
+            <div key={id} className="py-3 divide-y">
+              {columns.map((header) => {
                 return (
                   <div
                     key={header.id}
-                    className={`border-b border-b-gray-200 last:border-b-0 flex justify-between py-2 pl-2 border-l-4 ${
+                    className={`flex justify-between py-2 pl-2 border-l-4 ${
                       status === StatusType.SUCCEEDED
                         ? 'border-l-primary'
                         : 'border-l-ligthGray'
@@ -153,8 +154,9 @@ export const OrPaymentsTable = ({
         </div>
       ) : (
         <>
-          {renderCards()}
-          {renderTable()}
+          {(size.width || 0) < MOBILE_SM
+            ? renderCards(data, headers)
+            : renderTable(data, headers)}
         </>
       )}
     </div>
