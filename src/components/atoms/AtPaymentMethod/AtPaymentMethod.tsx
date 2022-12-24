@@ -1,5 +1,5 @@
 import { PayProvider } from 'types/payments'
-import { VisaIcon, MasterCardIcon, AmericanExpressIcon } from 'components/atoms'
+import { MasterCardIcon, VisaIcon, AmericanExpressIcon } from 'assets/icons'
 
 interface AtPaymentMethodProps {
   type?: string
@@ -16,11 +16,11 @@ export const AtPaymentMethod = ({
   function renderProvider(provider: PayProvider) {
     switch (provider) {
       case PayProvider.MASTERCARD:
-        return <MasterCardIcon className="w-6 h-6" />
+        return <MasterCardIcon className="w-6 h-6 min-h-fit" />
       case PayProvider.VISA:
-        return <VisaIcon className="w-6 h-6" />
+        return <VisaIcon className="w-6 h-6 min-h-fit" />
       case PayProvider.AMERICANEXPRESS:
-        return <AmericanExpressIcon className="w-6 h-6" />
+        return <AmericanExpressIcon className="w-6 h-6 min-h-fit" />
       default:
         return null
     }

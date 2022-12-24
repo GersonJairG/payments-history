@@ -1,7 +1,8 @@
+import { DataphoneIcon } from 'assets/icons'
 import { HiOutlineLink } from 'react-icons/hi'
 
 import { PayType, StatusType } from 'types/payments'
-import { DataphoneIcon } from 'components/atoms'
+// import { DataphoneIcon } from 'components/atoms'
 
 interface AtTransactionStatusProps {
   type: PayType
@@ -16,7 +17,7 @@ export const AtTransactionStatus = ({
 }: AtTransactionStatusProps) => {
   function renderType(type: PayType) {
     if (type === PayType.DATAPHONE) {
-      return <DataphoneIcon className="h-5 w-5" />
+      return <DataphoneIcon className="h-5 w-5 min-w-fit" />
     }
     if (type === PayType.LINK) {
       return <HiOutlineLink className="h-5 w-5" />

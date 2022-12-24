@@ -32,7 +32,7 @@ export const OrPaymentsTable = ({
       ) : (
         <div className="bg-white overflow-x-auto overflow-y-auto max-h-96 rounded-b-2xl">
           <table className="w-full table-auto">
-            <thead className='sticky top-0 bg-white shadow-md'>
+            <thead className="sticky top-0 bg-white shadow-md">
               <tr className="font-semibold text-darkGray text-sm">
                 {headers.map(({ label, id }) => (
                   <th key={id} className="text-left first:pl-5">

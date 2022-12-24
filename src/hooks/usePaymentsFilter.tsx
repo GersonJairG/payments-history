@@ -55,7 +55,6 @@ const usePaymentsFilter = (data: PaymentType[], filters?: FilterOptions) => {
   }
 
   function getTitles(selectedFilters?: FilterOptions) {
-    console.log('get titles')
     const currentMonth = getCurrentMonth()
 
     switch (selectedFilters?.frequency) {
