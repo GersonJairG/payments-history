@@ -5,6 +5,11 @@ export interface OptionType {
   value: string
 }
 
+export interface HeadersType {
+  label: string
+  id: string
+}
+
 export interface FrequencyOption {
   label: string
   value: FrequencyType

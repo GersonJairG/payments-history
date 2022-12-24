@@ -1,13 +1,13 @@
 import { useMemo, useState } from 'react'
 
 import { MlFilters, MlSummaryCard, MlTabs } from 'components/molecules'
-import { Layout } from 'components/templates'
 import { OrPaymentsTable } from 'components/organisms'
-import { FrequencyOption, FrequencyType, PayTypeOption } from 'types'
-import { getCurrentMonth } from 'utils/dateFormatter'
+import { Layout } from 'components/templates'
 import payments from 'data/payments.json'
-import { PaymentType } from 'types/payments'
 import usePaymentsFilter from 'hooks/usePaymentsFilter'
+import { FrequencyOption, FrequencyType, PayTypeOption } from 'types'
+import { PaymentType } from 'types/payments'
+import { getCurrentMonth } from 'utils/dateFormatter'
 import { getFormatCOP } from 'utils/helpers'
 
 const frequencyOptions: FrequencyOption[] = [

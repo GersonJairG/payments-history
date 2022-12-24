@@ -1,15 +1,12 @@
-import { AtButton, AtCheckbox, OptionCheckbox } from 'components/atoms'
 import { useRef, useState } from 'react'
-import { PayTypeOption } from 'types'
-import { PayType } from 'types/payments'
 import { MdClose } from 'react-icons/md'
 import { VscSettings } from 'react-icons/vsc'
-import {
-  getCountSelected,
-  getSelectionClean,
-  isAllCheck,
-} from 'utils/helpers'
+
+import { AtButton, AtCheckbox, OptionCheckbox } from 'components/atoms'
 import useOutsideClick from 'hooks/useOutsideClick'
+import { PayTypeOption } from 'types'
+import { PayType } from 'types/payments'
+import { getCountSelected, getSelectionClean, isAllCheck } from 'utils/helpers'
 
 interface MlFiltersProps {
   className?: string
@@ -110,7 +107,6 @@ export const MlFilters = ({
           <AtCheckbox
             label="Cobro con datáfono"
             value={PayType.DATAPHONE}
-            group="payType"
             onChange={onChange}
             checked={selectedOptions?.[PayType.DATAPHONE]}
             className="text-primary font-medium"
@@ -118,7 +114,6 @@ export const MlFilters = ({
           <AtCheckbox
             label="Cobro con link de pago"
             value={PayType.LINK}
-            group="payType"
             onChange={onChange}
             checked={selectedOptions?.[PayType.LINK]}
             className="text-primary font-medium"
@@ -126,18 +121,13 @@ export const MlFilters = ({
           <AtCheckbox
             label="Ver todos"
             value="all"
-            group="payType"
             onChange={onChange}
             checked={selectedOptions?.all}
             className="text-primary font-medium"
           />
         </div>
         <div className="w-full flex justify-center">
-          <AtButton
-            primary
-            onClick={applyFilters}
-            className="w-2/3"
-          >
+          <AtButton primary onClick={applyFilters} className="w-2/3">
             Aplicar
           </AtButton>
         </div>

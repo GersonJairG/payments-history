@@ -1,5 +1,5 @@
-import { PayProvider } from 'types/payments'
 import { MasterCardIcon, VisaIcon, AmericanExpressIcon } from 'assets/icons'
+import { PayProvider } from 'types/payments'
 
 interface AtPaymentMethodProps {
   type?: string

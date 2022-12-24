@@ -5,14 +5,14 @@ import {
 } from 'components/atoms'
 import { MOBILE_SM } from 'constants/devicesSizes'
 import useWindowSize from 'hooks/useWindowSize'
+import { HeadersType } from 'types'
 import { PaymentType, PayProvider, PayType, StatusType } from 'types/payments'
 import { getPaymentFormat } from 'utils/dateFormatter'
-import { HeaderType } from './types'
 
 interface OrPaymentsTableProps {
   className?: string
   data?: PaymentType[]
-  headers: HeaderType[]
+  headers: HeadersType[]
   title?: string
 }
 
@@ -24,7 +24,7 @@ export const OrPaymentsTable = ({
 }: OrPaymentsTableProps) => {
   const size = useWindowSize()
 
-  const renderTable = (rows: PaymentType[], columns: HeaderType[]) => {
+  const renderTable = (rows: PaymentType[], columns: HeadersType[]) => {
     return (
       <div className="hidden sm:flex bg-white overflow-x-auto overflow-y-auto max-h-96 rounded-b-2xl">
         <table className="w-full table-auto">
@@ -86,7 +86,7 @@ export const OrPaymentsTable = ({
     )
   }
 
-  const renderCards = (rows: PaymentType[], columns: HeaderType[]) => {
+  const renderCards = (rows: PaymentType[], columns: HeadersType[]) => {
     return (
       <div className="flex-col bg-white w-full overflow-x-auto overflow-y-auto max-h-96 rounded-b-2xl sm:hidden py-3 px-5 text-sm divide-y-2">
         {rows.map(({ id, status, type, date, method, amount, deduction }) => {

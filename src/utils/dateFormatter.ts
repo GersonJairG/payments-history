@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 import 'dayjs/locale/es'
 import weekday from 'dayjs/plugin/weekday'
+
 import { FrequencyType } from 'types'
 
 dayjs.locale('es')

@@ -8,7 +8,6 @@ export interface OptionCheckbox {
 interface AtCheckboxProps {
   value: string
   label: string
-  group: string
   checked?: boolean
   onChange: (value: OptionCheckbox) => void
   className?: string
@@ -17,7 +16,6 @@ interface AtCheckboxProps {
 export const AtCheckbox = ({
   value,
   label,
-  group,
   onChange,
   checked = false,
   className = '',
@@ -33,7 +31,6 @@ export const AtCheckbox = ({
       <input
         type="checkbox"
         id={value}
-        name={group}
         value={value}
         onChange={handleChange}
         checked={checked}

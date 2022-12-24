@@ -18,7 +18,7 @@ export const AtButton: FC<ButtonProps> = ({
   ...rest
 }) => {
   const renderLoading = () => (
-    <div className="mr-2 flex h-5 w-5 animate-spin rounded-full border-2 border-solid border-indigo-200 border-t-transparent " />
+    <div className="mr-2 flex h-5 w-5 animate-spin rounded-full border-2 border-solid border-white border-t-transparent " />
   )
 
   return (

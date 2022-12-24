@@ -1,7 +1,8 @@
-import { DataphoneIcon } from 'assets/icons'
 import { HiOutlineLink } from 'react-icons/hi'
 
+import { DataphoneIcon } from 'assets/icons'
 import { PayType, StatusType } from 'types/payments'
+
 
 interface AtTransactionStatusProps {
   type: PayType
