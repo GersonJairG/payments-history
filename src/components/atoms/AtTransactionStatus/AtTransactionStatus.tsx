@@ -38,7 +38,7 @@ export const AtTransactionStatus = ({
   return (
     <div className={`flex ${className}`}>
       {renderType(type)}
-      <span className="ml-2">{renderDetail(status)}</span>
+      <span className="sm:ml-2">{renderDetail(status)}</span>
     </div>
   )
 }
