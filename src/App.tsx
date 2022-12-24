@@ -73,6 +73,7 @@ function App() {
             <MlFilters
               activeOptions={paymentTypes}
               handleChange={changePaymentTypes}
+              className="md:self-end md:w-4/5 lg:w-1/2 xl:w-1/3"
             />
           </div>
         </div>

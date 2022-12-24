@@ -11,64 +11,83 @@ interface OrPaymentsTableProps {
   className?: string
   data?: PaymentType[]
   headers: HeaderType[]
+  title?: string
 }
 
 export const OrPaymentsTable = ({
   className = '',
   data = [],
   headers = [],
+  title = 'Tus ventas',
 }: OrPaymentsTableProps) => {
   return (
     <div className={`${className}`}>
-      <table className="bg-white w-full rounded-2xl">
-        <thead>
-          <tr className="font-semibold text-darkGray text-sm">
-            {headers.map(({ label, id }) => (
-              <th key={id} className="text-left first:pl-5">
-                {label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-
-        <tbody>
-          {data.map(({ id, status, type, date, method, amount, deduction }) => {
-            return (
-              <tr
-                key={id}
-                className="border-t-2 border-t-gray-200 text-sm text-ligthGray"
-              >
-                <td
-                  className={`text-primary font-semibold px-2 border-l-4 ${
-                    status === StatusType.SUCCEEDED
-                      ? 'border-l-primary'
-                      : 'border-l-ligthGray'
-                  } first:pl-5`}
-                >
-                  <AtTransactionStatus
-                    status={status as StatusType}
-                    type={type as PayType}
-                  />
-                </td>
-
-                <td>{getPaymentFormat(date)}</td>
-
-                <td>
-                  <AtPaymentMethod
-                    provider={method.provider as PayProvider}
-                    numberCard={method.numberCard}
-                  />
-                </td>
-
-                <td>{id}</td>
-                <td>
-                  <AtPaymentAmount amount={amount} deduction={deduction} />
-                </td>
+      <div className="w-full bg-gradient-bold text-white sm:text-lg pl-5 py-1 rounded-t-2xl">
+        {title}
+      </div>
+      {!data.length ? (
+        <div className="bg-white w-full rounded-b-2xl text-center font-medium text-sm md:text-base py-5 px-5">
+          No hay datos en la configuración seleccionada
+        </div>
+      ) : (
+        <div className="bg-white overflow-x-auto overflow-y-auto max-h-80 rounded-b-2xl">
+          <table className="w-full table-auto">
+            <thead>
+              <tr className="font-semibold text-darkGray text-sm">
+                {headers.map(({ label, id }) => (
+                  <th key={id} className="text-left first:pl-5">
+                    {label}
+                  </th>
+                ))}
               </tr>
-            )
-          })}
-        </tbody>
-      </table>
+            </thead>
+
+            <tbody>
+              {data.map(
+                ({ id, status, type, date, method, amount, deduction }) => {
+                  return (
+                    <tr
+                      key={id}
+                      className="border-t-2 border-t-gray-200 text-sm text-ligthGray"
+                    >
+                      <td
+                        className={`text-primary font-semibold px-2 border-l-4 ${
+                          status === StatusType.SUCCEEDED
+                            ? 'border-l-primary'
+                            : 'border-l-ligthGray'
+                        } first:pl-5`}
+                      >
+                        <AtTransactionStatus
+                          status={status as StatusType}
+                          type={type as PayType}
+                        />
+                      </td>
+
+                      <td>{getPaymentFormat(date)}</td>
+
+                      <td>
+                        <AtPaymentMethod
+                          provider={method.provider as PayProvider}
+                          numberCard={method.numberCard}
+                        />
+                      </td>
+
+                      <td>{id}</td>
+                      <td>
+                        <AtPaymentAmount
+                          amount={amount}
+                          deduction={deduction}
+                          successful={status === StatusType.SUCCEEDED}
+                        />
+                      </td>
+                    </tr>
+                  )
+                }
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   )
 }

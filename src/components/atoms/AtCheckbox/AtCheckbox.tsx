@@ -11,6 +11,7 @@ interface AtCheckboxProps {
   group: string
   checked?: boolean
   onChange: (value: OptionCheckbox) => void
+  className?: string
 }
 
 export const AtCheckbox = ({
@@ -18,7 +19,8 @@ export const AtCheckbox = ({
   label,
   group,
   onChange,
-  checked = false
+  checked = false,
+  className = '',
 }: AtCheckboxProps) => {
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     onChange({
@@ -27,7 +29,7 @@ export const AtCheckbox = ({
     })
   }
   return (
-    <div className="flex">
+    <div className="flex space-x-4">
       <input
         type="checkbox"
         id={value}
@@ -36,7 +38,9 @@ export const AtCheckbox = ({
         onChange={handleChange}
         checked={checked}
       />
-      <label htmlFor={value}>{label}</label>
+      <label htmlFor={value} className={className}>
+        {label}
+      </label>
     </div>
   )
 }

@@ -22,10 +22,10 @@ export const MlTabs = ({
             key={label}
             className={`flex py-2 text-primary justify-center items-center w-full ${
               isActive ? 'bg-gray-200 font-bold' : 'font-semibold'
-            } rounded-full capitalize transition duration-150`}
+            } rounded-full transition duration-150`}
             onClick={() => handleChange(value)}
           >
-            {label}
+            <span className="first-letter:uppercase">{label}</span>
           </button>
         )
       })}
