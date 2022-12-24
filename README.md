@@ -19,7 +19,7 @@ Deployment of the web app on Vercel:
 
 ## Tasks breakdown
 
-To check the tasks breakdown, please refer to the GitHub Project [Billing History](https://github.com/GersonJairG/billing-history)
+To check the tasks breakdown, please refer to the GitHub Project [Payments History](https://github.com/GersonJairG/payments-history)
 
 ## Technologies Used
 
